@@ -9,8 +9,16 @@ namespace FreeCostFix
 
         void Awake()
         {
-            // HACK: "Random" value to semi-guarantee it gets refreshed the first frame
-            HologramContent.oldDisplayValue = -346893567;
+            if (!HologramContent)
+            {
+                HologramContent = GetComponent<CostHologramContent>();
+            }
+
+            if (HologramContent)
+            {
+                // HACK: "Random" value to semi-guarantee it gets refreshed the first frame
+                HologramContent.oldDisplayValue = -346893567;
+            }
         }
     }
 }
